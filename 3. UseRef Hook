@@ -1,0 +1,49 @@
+useRef Hook
+The useRef hook is a React hook that allows you to create mutable variables that do not cause the component to re-render when their values change. It is also used to access 
+and modify DOM elements.
+
+Key Concepts:
+Non-rendering mutation: Unlike useState, changing a useRef variable does not trigger a component re-render. This is useful for storing values that need to persist across 
+renders but don't need to update the UI.
+Accessing DOM elements: It can be used to get a direct reference to a DOM element, allowing for manipulation such as changing styles or focusing an input field
+
+Example 1: Creating a Render Counter
+A counter is created using useRef with an initial value of 0.
+An useEffect hook without any dependencies is used to increment the counter every time the component renders.
+The value of the useRef variable is accessed via its .current property (count.current).
+This approach prevents an infinite loop that would occur if useState were used for the same purpose because useRef does not cause re-renders
+
+Example 2: Accessing a DOM Element
+
+A useRef variable is created, for example, inputElement [50:09].
+
+This ref is then attached to a DOM element, such as an <input> tag, using the ref attribute (<input ref={inputElement} />) [50:43].
+
+A button with an onClick event is set up to demonstrate accessing and modifying the DOM element [50:53].
+
+When the button is clicked, a function logs the input element to the console by accessing inputElement.current [52:18].
+
+It also changes the element's background color by setting a style property on inputElement.current [52:44].
+
+useMemo Hook
+The useMemo hook returns a "memoized" value, which is a cached value that is only re-calculated when one of its dependencies changes [53:39]. This helps to improve the performance of an application by preventing expensive calculations from running on every re-render.
+
+Key Concepts:
+
+Memorization: It stores the result of a function call and reuses it instead of re-running the function every time the component re-renders [53:39].
+
+Dependency Array: useMemo accepts a dependency array. The value is only re-calculated when the values in this array change [53:48].
+
+Example: Preventing Unnecessary Calculations
+
+Two state variables, number and counter, are created using useState [54:26].
+
+A function named cubeNum is defined to calculate the cube of a number. This function also logs a message "calculation done" to the console [55:16].
+
+Initially, without useMemo, the cubeNum function is called directly to calculate the cube of the number state variable [56:11].
+
+When a button to increase the counter is clicked, the app component re-renders. This causes the cubeNum function to run again, even though the number state hasn't changed. This is inefficient [01:00:00].
+
+To fix this, useMemo is used to wrap the call to cubeNum. The number variable is added to the dependency array of useMemo [01:01:57].
+
+Now, the cubeNum function is only executed when the number state changes. Clicking the counter button no longer triggers the expensive cubeNum calculation, which is verified by checking the console logs [01:03:31]. This improves the application's performance.
