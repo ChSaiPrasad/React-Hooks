@@ -13,7 +13,7 @@ Commonly Used Hooks:  useState, useEffect, useRef, useMemo, useCallback, useCont
 
 
 1. useState
-.............
+ 
 useState creates a state variable to track and update the state of a component, which in turn updates the user interface when the state changes
 Syntax: It returns an array with two elements: the current state value and a function to update that value.
 <pre>
@@ -26,11 +26,13 @@ The useState hook can be initialized with any data type, such as a string, boole
 
 Updating state with an object: To update only a specific property within a state object without losing other data, you must spread the previous state and then add the new value 
 
+<img width="300" height="300" alt="Screenshot 2025-08-04 111321" src="https://github.com/user-attachments/assets/b56023cb-6197-4599-8da3-dbf4bb0aca09" />
+
 Updating state based on the previous state: When performing multiple state updates in a single render, it's essential to 
 use a function that receives the previous state to ensure correct calculations 
+
 <img width="300" height="300" alt="Screenshot 2025-08-04 111321" src="https://github.com/user-attachments/assets/7f2f9893-285b-480b-9e42-c61edce6d885" />
 
-2. useEffect
 
 
 
